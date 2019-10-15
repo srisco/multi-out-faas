@@ -1,0 +1,19 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://127.0.0.1:8080
+
+functions:
+  multi-out:
+    lang: python3
+    handler: ./multi-out
+    image: srisco/multi-out-faas
+    environment:
+      ONEPROVIDER_HOST: host
+      ONEPROVIDER_TOKEN: my-token
+      ONEDATA_SPACE: my-space
+      FOLDER_1: function1-in
+      EXTENSION_1: avi
+      FOLDER_2: function2-in
+      EXTENSION_2: wav
+      write_debug: true
